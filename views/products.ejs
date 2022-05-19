@@ -1,14 +1,19 @@
 
 
  <%- include('partials/_nav') %>
- <div class="col btn-warning ms-3">
+ <div class="col btn-warning ms-3 ">
    <h1>Products</h1>
-<table class="table">
+<table class="table my-4">
       <thead>
         <tr>
           <th scope="col">Name</th>
           <th scope="col">Quantity</th>
-          <th scope="col">Location</th>
+          <th scope="col">Description</th>
+          <th scope="col">Warehouse</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
+
+
 
         </tr>
       </thead>
@@ -17,7 +22,8 @@
           <tr>
             <td><%= product.name %></td>
             <td><%= product.quantity %></td>
-            <!-- <td><%= product.quantity %></td> -->
+            <td><%= product.description %></td>
+            <td><%= product.location %></td>
           </tr>
         <% } %>
       </tbody>
