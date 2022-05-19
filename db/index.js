@@ -1,13 +1,20 @@
-const pg = require('pg');
-require('dotenv').config();
+// / Database connections
+const { Pool } = require('pg');
 
-const connectionString = `postgres://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}?sslmode=disable`;
+const {DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE, DB_PORT} = process.env;
 
-const client = new pg.Client({
-  connectionString: connectionString || process.env.DATABASE_URL,
+const pool = new Pool({
+  user: DB_USER,
+  host: DB_HOST,
+  password: DB_PASSWORD,
+  port: DB_PORT,
+  database: DB_DATABASE,
 });
 
-console.log(`Connected to ${process.env.DB_NAME} on ${process.env.DB_HOST}`);
-client.connect();
+pool.connect().then(() => {
+  console.log("Database connection established.");
+}).catch(e => {
+  throw new Error(e);
+});
 
-module.exports = client;
+module.exports = pool;
