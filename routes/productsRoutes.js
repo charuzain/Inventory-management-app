@@ -6,18 +6,17 @@ const router = express.Router();
 const app = express();
 app.set("view engine", "ejs");
 
-module.exports = ({getAllProducts,getSingleProduct})=>{
+module.exports = ({getAllProducts,getSingleProduct,getProducts})=>{
+
+   
 
   router.get('/',(req,res)=>{
     getAllProducts().then(val =>{
-      // console.log(val);
+      console.log(val);
       console.log({val});
       res.render('products' ,{val});
     });
   
-    // console.log(value);
-    // console.log("hi");
-    // res.send("hi");
     
   });
 
