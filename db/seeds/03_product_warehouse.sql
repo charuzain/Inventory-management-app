@@ -1,5 +1,5 @@
 INSERT INTO product_warehouse 
-(product_id,warehouses(id))
+(product_id,warehouse_id)
 VALUES
  (1,1),
  (1,4),
