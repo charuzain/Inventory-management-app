@@ -21,15 +21,19 @@ app.set('view engine', 'ejs');
 const dbHelpers = require("./helpers/dbHelpers")(db);
 
 const productsRoutes = require("./routes/productsRoutes");
+const warehousesRoutes = require("./routes/warehouseRoutes");
+
 
 
 app.use("/products",productsRoutes(dbHelpers));
+app.use("/warehouse",warehousesRoutes(dbHelpers));
 
 
 
-app.get('/',(req,res)=>{
-  res.render('dashboard');
-});
+
+// app.get('/',(req,res)=>{
+//   res.render('dashboard');
+// });
 
 app.listen(PORT ,()=>{
   console.log(`app is listening on port ${PORT}`);
