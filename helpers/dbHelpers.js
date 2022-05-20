@@ -2,7 +2,7 @@
 module.exports = (db) => {
 
   const getAllProducts = () => {
-    const query = `SELECT prod.name, prod.description,prod.quantity,sum(pc.product_id) , array_agg(ware.name) as      location from products prod 
+    const query = `SELECT prod.name, prod.description,prod.quantity,sum(pc.product_id) , array_agg(ware.name) as  location from products prod 
               JOIN product_warehouse pc on prod.id = pc.product_id
               JOIN warehouses ware ON ware.id=pc.warehouse_id GROUP BY prod.name, prod.description,prod.quantity `;
    
