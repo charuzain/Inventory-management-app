@@ -14,6 +14,12 @@ module.exports = ({getAllWarehouses})=>{
       console.log({warehouses});
       res.render('warehouse',{warehouses});
     });
+
+
+    router.get('/new',(req,res)=>{
+  
+      res.render('new_warehouse');
+    });
   
     
   });
