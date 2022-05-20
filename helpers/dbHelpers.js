@@ -47,10 +47,6 @@ module.exports = (db) => {
 
 
   };
-
-
-
-
   return {
     getAllProducts,
     getSingleProduct,
