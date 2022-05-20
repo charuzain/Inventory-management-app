@@ -9,7 +9,7 @@ module.exports = (db) => {
     return db
       .query(query)
       .then((result) => {
-        console.log(result.rows);
+        // console.log(result.rows);
         return result.rows;
       })
       .catch((err) => err);
@@ -31,9 +31,30 @@ module.exports = (db) => {
       })
       .catch((err) => err);
   };
+
+
+  const getAllWarehouses = ()=>{
+    const query = {
+      text: `SELECT * FROM warehouses`,
+    };
+    return db
+      .query(query)
+      .then((result) => {
+        return result.rows;
+       
+      })
+      .catch((err) => err);
+
+
+  };
+
+
+
+
   return {
     getAllProducts,
     getSingleProduct,
+    getAllWarehouses
   
   };
 };
