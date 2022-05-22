@@ -35,9 +35,11 @@ module.exports = (db) => {
   };
 
 
+  // select warehouses.* , count(product_id) as total from warehouses join product_warehouse ON warehouses.id = warehouse_id  GROUP BY warehouses.id;
+
   const getAllWarehouses = ()=>{
     const query = {
-      text: `SELECT * FROM warehouses`,
+      text: `select warehouses.* , count(product_id) as total from warehouses join product_warehouse ON warehouses.id = warehouse_id  GROUP BY warehouses.id;`,
     };
     return db
       .query(query)
