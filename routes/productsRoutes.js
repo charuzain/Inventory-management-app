@@ -1,24 +1,45 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 const router = express.Router();
-// const getAllProducts = require("../helpers/dbHelpers").getAllProducts;
-// console.log(getAllProducts);
+
+
 
 const app = express();
 app.set("view engine", "ejs");
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
 
-module.exports = ({getAllProducts,getSingleProduct,getProducts})=>{
+module.exports = ({getAllProducts,getSingleProduct,getProducts,getAllWarehouses})=>{
 
    
 
   router.get('/',(req,res)=>{
-    getAllProducts().then(val =>{
-      console.log(val);
-      console.log({val});
-      res.render('products' ,{val});
+    getAllProducts().then(products =>{
+      console.log(products[1].location);
+      console.log({products});
+      res.render('products' ,{products});
     });
   
     
   });
+
+ 
+
+
+  router.get('/new',(req,res)=>{
+    getAllWarehouses().then(warehouses=>{
+      res.render('new_product',{warehouses});
+    });
+   
+  });
+
+ 
+  router.post('/',(req,res)=>{
+    console.log(`name is ${req.body.name}`);
+    console.log(req.body);
+  });
+
+
 
   router.get('/:id',(req,res)=>{
     const id = req.params.id;
@@ -30,6 +51,8 @@ module.exports = ({getAllProducts,getSingleProduct,getProducts})=>{
         error: err.message
       }));
   });
+
+
 
   return router;
 };
