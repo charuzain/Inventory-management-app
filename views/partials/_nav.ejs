@@ -20,13 +20,17 @@
   </head>
   <body>
      <!-- start of vertical navbar -->
-    <nav class="navbar navbar-dark bg-dark h-10" style="height: 75px"></nav>
+    <nav class="navbar navbar-dark bg-dark h-10 justify-content-center" style="height: 75px">
+     <div>
+            <h1 class="fs-2 text-white px-2">Inventory Management</h1>
+          </div>
+        </nav>
 
     <div class="container-fluid">
       <div class="row h-100">
         <div class="col-2 me-1 bg-light" style="height: calc(100vh - 75px)">
+         
           <ul class="nav flex-column my-5">
-
             <li
               class="nav-item my-3 p-1 me-2"
               style="background-color: rgb(199, 194, 194)"
@@ -50,7 +54,7 @@
               class="nav-item my-3 p-1 me-2"
               style="background-color: rgb(199, 194, 194)"
             >
-              <a class="nav-link text-black" href="#">
+              <a class="nav-link text-black" href="/products/new">
                 <i class="bi bi-plus-circle-fill text-black me-2"></i>
                 Add Products</a
               >
