@@ -16,15 +16,19 @@
   <textarea class="form-control" placeholder="product description" id="description" name="description"></textarea>
   </div>
 
-<div class="col-5">
-    <label for="brand" class="form-label">Brand</label>
-    <input type="text" class="form-control" id="brand" name="brand">
+ <div class="col-5">
+    <label for="price" class="form-label">Price</label>
+    <input type="number" class="form-control" id="price" name="price" required>
   </div>
 
   <div class="col-5">
     <label for="quantity" class="form-label">Total Quantity</label>
     <input type="number" class="form-control" id="quantity" name="totalquantity" required>
   </div>
+
+  
+
+
   <div class="accordion col-10 my-5" id="accordionExample">
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingOne">
@@ -34,13 +38,16 @@
     </h2>
 
     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
+      <div class="accordion-body" required>
 <% for (let warehouse of warehouses) { %>
     <div class="form-check">
-  <input class="form-check-input" type="checkbox" value='<%= warehouse.name %>' id="flexCheckDefault" name="location">
+  <input class="form-check-input" type="checkbox" value='<%= warehouse.id %>' id="flexCheckDefault" name="location">
   <label class="form-check-label text-dark" for="flexCheckDefault">
      <%= warehouse.name %>
   </label>
+  
+
+
 
 </div>
 <% } %>
