@@ -1,0 +1,73 @@
+ <%- include('partials/_nav') %>
+
+
+<div class="col bg-primary text-white">
+  <h1 class="text-center my-5">New Product</h1>
+<div class="container justify-content-center">
+<form class="row g-3 ms-5 p-5 col-10 border bg-success justify-content-center" action="/products" method="POST">
+
+  <div class="col-10">
+    <label for="name" class="form-label">Product Name</label>
+    <input type="text" class="form-control" id="name" name="name" required>
+  </div>
+
+  <div class="col-10">
+    <label for="description" class="form-label">Description</label>
+  <textarea class="form-control" placeholder="product description" id="description" name="description"></textarea>
+  </div>
+
+<div class="col-5">
+    <label for="brand" class="form-label">Brand</label>
+    <input type="text" class="form-control" id="brand" name="brand">
+  </div>
+
+  <div class="col-5">
+    <label for="quantity" class="form-label">Total Quantity</label>
+    <input type="number" class="form-control" id="quantity" name="totalquantity" required>
+  </div>
+  <div class="accordion col-10 my-5" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+       Select Warehouse(s)
+      </button>
+    </h2>
+
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+<% for (let warehouse of warehouses) { %>
+    <div class="form-check">
+  <input class="form-check-input" type="checkbox" value='<%= warehouse.name %>' id="flexCheckDefault" name="location">
+  <label class="form-check-label text-dark" for="flexCheckDefault">
+     <%= warehouse.name %>
+  </label>
+
+</div>
+<% } %>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+ <div class="col-3 my-3">
+    <button type="submit" class="btn btn-primary">Create Product</button>
+  </div>
+
+</form>
+
+</div>
+ </div>  
+
+</div>
+   </div>
+    </div>
+     <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+  
+  </body>
+</html>
