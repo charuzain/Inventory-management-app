@@ -9,14 +9,14 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
-module.exports = ({getAllProducts,getSingleProduct,getProducts,getAllWarehouses})=>{
+module.exports = ({getAllProducts,getSingleProduct,getProducts,getAllWarehouses,addNewProduct})=>{
 
    
 
   router.get('/',(req,res)=>{
     getAllProducts().then(products =>{
-      console.log(products[1].location);
-      console.log({products});
+      // console.log(products[1].location);
+      // console.log({products});
       res.render('products' ,{products});
     });
   
@@ -35,8 +35,22 @@ module.exports = ({getAllProducts,getSingleProduct,getProducts,getAllWarehouses}
 
  
   router.post('/',(req,res)=>{
-    console.log(`name is ${req.body.name}`);
-    console.log(req.body);
+    // console.log(`name is ${req.body.name}`);
+    // console.log(req.body);
+    const name = req.body.name;
+    const description = req.body.name;
+    const price = req.body.price;
+    const quantity = req.body.totalquantity;
+    const location = req.body.location;
+ 
+    addNewProduct(name,description,price,quantity,location).then(value=>{
+      console.log(value);
+      res.redirect('/products');
+    }
+    );
+
+
+
   });
 
 
