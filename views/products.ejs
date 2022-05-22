@@ -7,6 +7,7 @@
       <thead>
         <tr>
           <th scope="col">Name</th>
+          <th scope="col">Price</th>
           <th scope="col">Quantity</th>
           <th scope="col">Description</th>
           <th scope="col">Warehouse</th>
@@ -18,12 +19,21 @@
         </tr>
       </thead>
         <tbody>
-        <% for(let product of val) { %>
+        <% for(let product of products) { %>
           <tr>
             <td><%= product.name %></td>
+             <td><%= product.price %></td>
             <td><%= product.quantity %></td>
             <td><%= product.description %></td>
-            <td><%= product.location %></td>
+            <td>
+       <% for(let location of product.location) { %>
+       <a href='/warehouse/<%= location %>' class="link-dark btn-info"><%= location  %></a>
+              
+
+              <% } %>
+              </td>
+           <td><button type="button" class="btn btn-primary">Edit</button></td>
+            <td><button type="button" class="btn btn-danger">Delete</button></td>
           </tr>
         <% } %>
       </tbody>
