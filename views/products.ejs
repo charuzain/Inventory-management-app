@@ -11,6 +11,7 @@
           <th scope="col">Quantity</th>
           <th scope="col">Description</th>
           <th scope="col">Warehouse</th>
+          <th scope="col">View</th>
           <th scope="col">Edit</th>
           <th scope="col">Delete</th>
 
@@ -20,6 +21,7 @@
       </thead>
         <tbody>
         <% for(let product of products) { %>
+         <% if(product.name){  %>
           <tr>
             <td><%= product.name %></td>
              <td><%= product.price %></td>
@@ -27,14 +29,18 @@
             <td><%= product.description %></td>
             <td>
        <% for(let location of product.location) { %>
-       <a href='/warehouse/<%= location %>' class="link-dark btn-info"><%= location  %></a>
-              
+    
+       <a href='/warehouses/<%= location%>' class="link-dark btn-info"><%= location  %></a>
+       
 
               <% } %>
               </td>
+               <td><a href='/products/<%= product.id %>' class="btn btn-primary">View</a></td>
+             
            <td><button type="button" class="btn btn-primary">Edit</button></td>
             <td><button type="button" class="btn btn-danger">Delete</button></td>
           </tr>
+          <% } %>
         <% } %>
       </tbody>
     </table>
