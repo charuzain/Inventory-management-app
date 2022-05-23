@@ -1,0 +1,62 @@
+
+
+ <%- include('partials/_nav') %>
+ <div class="col bg-primary text-white ">
+    <h3 class="text-center my-5">Warehouse Name :   <%=   warehouse.name %></h3>
+
+
+ 
+  <div class="card-header g-3 ms-5 col-10 border-dark bg-success text-start justify-content-center">
+  <p>Warehouse Id : <%=   warehouse.id%></p>
+
+   <p>Product at Warehouse :
+
+    <% for(let product of warehouse.productlist) { %>
+       <a href='/products/<%= product %>' class="link-dark btn-info"><%= product  %></a>
+              
+
+              <% } %>
+    </p>
+   
+    <h5 class="card-title bg-gray">WareHouse Address</h5>
+    <p class="card-text">  <%=   warehouse.address %></p>
+
+     <p class="card-text">  <%=   warehouse.city %></p>
+
+      <p class="card-text">  <%=   warehouse.state %></p>
+
+       <p class="card-text">  <%=   warehouse.zip %></p>
+
+        <p class="card-text">  <%=   warehouse.country %></p>
+
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+ </div>
+      </div>
+    </div>
+
+   
+
+
+
+     <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
