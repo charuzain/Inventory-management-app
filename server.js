@@ -14,6 +14,8 @@ const app = express();
 
 // middleware setup
 app.use(morgan(ENVIROMENT));
+app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(bodyParser.json());
 // set the view engine to ejs
 app.set('view engine', 'ejs');
@@ -26,14 +28,14 @@ const warehousesRoutes = require("./routes/warehouseRoutes");
 
 
 app.use("/products",productsRoutes(dbHelpers));
-app.use("/warehouse",warehousesRoutes(dbHelpers));
+app.use("/warehouses",warehousesRoutes(dbHelpers));
 
 
 
 
-// app.get('/',(req,res)=>{
-//   res.render('dashboard');
-// });
+app.get('/',(req,res)=>{
+  res.render('dashboard');
+});
 
 app.listen(PORT ,()=>{
   console.log(`app is listening on port ${PORT}`);
